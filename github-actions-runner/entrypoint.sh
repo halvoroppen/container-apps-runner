@@ -7,5 +7,5 @@ REGISTRATION_TOKEN="$(curl -X POST -fsSL \
   -H 'X-GitHub-Api-Version: 2022-11-28' \
   "$REGISTRATION_TOKEN_API_URL" \
   | jq -r '.token')"
-
-./config.sh --url $GH_URL --token $REGISTRATION_TOKEN --unattended --ephemeral --no-default-labels --labels $labels && ./run.sh
+# add --no-default-labels if needed
+./config.sh --url $GH_URL --token $REGISTRATION_TOKEN --unattended --ephemeral --labels $labels && ./run.sh
