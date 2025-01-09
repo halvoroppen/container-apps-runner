@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+echo "APP_ID=$APP_ID"
+echo "RUNNER_REGISTRATION_URL=$RUNNER_REGISTRATION_URL"
+echo "ACCESS_TOKEN_API_URL=$ACCESS_TOKEN_API_URL"
+echo "REGISTRATION_TOKEN_API_URL=$REGISTRATION_TOKEN_API_URL"
+echo "labels=$labels"
+
 set -o pipefail
 
 now=$(date +%s)
