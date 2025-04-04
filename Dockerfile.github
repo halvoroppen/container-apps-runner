@@ -4,7 +4,7 @@ USER root
 
 # Install required base packages
 RUN apt-get update && \
-    apt-get install -y apt-transport-https ca-certificates curl gnupg jq lsb-release software-properties-common wget
+    apt-get install -y apt-transport-https ca-certificates curl gnupg jq lsb-release software-properties-common wget make gh
 
 # Install powershell 7
 RUN export VERSION_ID=$(grep VERSION_ID /etc/os-release | cut -d'=' -f2 | tr -d '"') && \
@@ -18,6 +18,12 @@ RUN pwsh -command Install-Module -Name Az -Repository PSGallery -Force -Scope Al
 
 # Install azure cli
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+# Install kubeconform
+curl -L https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz \
+-o kubeconform.tar.gz
+tar -xzf kubeconform.tar.gz
+chmod +x kubeconform
 
 # Clean up
 RUN rm packages-microsoft-prod.deb && \
