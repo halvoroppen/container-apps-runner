@@ -20,10 +20,10 @@ RUN pwsh -command Install-Module -Name Az -Repository PSGallery -Force -Scope Al
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
 # Install kubeconform
-curl -L https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz \
--o kubeconform.tar.gz
-tar -xzf kubeconform.tar.gz
-chmod +x kubeconform
+RUN curl -L https://github.com/yannh/kubeconform/releases/download/v0.6.7/kubeconform-linux-amd64.tar.gz \
+    -o kubeconform.tar.gz && \
+    tar -xzf kubeconform.tar.gz && \
+    chmod +x kubeconform
 
 # Clean up
 RUN rm packages-microsoft-prod.deb && \
