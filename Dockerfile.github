@@ -3,7 +3,7 @@ FROM ghcr.io/actions/actions-runner:latest
 USER root
 
 # Install required base packages
-RUN apt-get update && \
+RUN apt-get update && apt-get upgrade && \
     apt-get install -y apt-utils apt-transport-https ca-certificates curl gnupg jq lsb-release software-properties-common wget make gh unzip time
 
 # Install powershell 7
