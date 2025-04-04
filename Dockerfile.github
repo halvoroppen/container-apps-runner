@@ -4,7 +4,7 @@ USER root
 
 # Install required base packages
 RUN apt-get update && \
-    apt-get install -y apt-utils apt-transport-https ca-certificates curl gnupg jq lsb-release software-properties-common wget make gh unzip
+    apt-get install -y apt-utils apt-transport-https ca-certificates curl gnupg jq lsb-release software-properties-common wget make gh unzip time
 
 # Install powershell 7
 RUN export VERSION_ID=$(grep VERSION_ID /etc/os-release | cut -d'=' -f2 | tr -d '"') && \
